@@ -1,11 +1,11 @@
 window.onload = () => {
   const canvas = document.getElementById("canvas");
   const context = canvas.getContext("2d");
-  const quads = [];
-  const size = 10;
-  const rows = 100;
-  const cols = 40;
-  const colors = ["black", "orange", "#0088FF"];
+  var quads = [];
+  var size = 10;
+  var rows = 100;
+  var cols = 40;
+  var colors = ["black", "orange", "#0088FF"];
 
   context.translate(0, 0);
 
@@ -21,7 +21,7 @@ window.onload = () => {
     // add quads
     for (let i = 0; i < rows; i ++) {
       for (let j = 0; j < cols; j ++) {
-        const quad = new Quad(100 + i * size, 100 + j * size, size, size);
+        var quad = new Quad(100 + i * size, 100 + j * size, size, size);
         quads.push(quad);
       }
     }
@@ -35,17 +35,17 @@ window.onload = () => {
   }
 
   function Quad(x, y, width, height) {
-    const velVector = {
+    var velVector = {
       x: Math.random() * 10,
       y: Math.random() * 10
     };
-    const targetPoint = {
+    var targetPoint = {
       x: 300,
       y: 300
     };
-    const speed = 0.5;
-    let angle = 0;
-    let colorIndex = 0;
+    var speed = 0.5;
+    var angle = 0;
+    var colorIndex = 0;
 
     // constructor
     (function() {
@@ -56,9 +56,9 @@ window.onload = () => {
     })()
 
     this.draw = function() {
-      const dx = targetPoint.x - x;
-      const dy = targetPoint.y - y;
-      const alphaFactor = (canvas.height - y) * 0.002;
+      var dx = targetPoint.x - x;
+      var dy = targetPoint.y - y;
+      var alphaFactor = (canvas.height - y) * 0.002;
 
       angle = Math.atan2(dy, dx);
       velVector.x += Math.cos(angle);
